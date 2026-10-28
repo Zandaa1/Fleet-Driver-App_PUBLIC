@@ -1,0 +1,37 @@
+# Local credentials and private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+key.properties
+# Private data and runtime output
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.csv
+*.sqlite*
+*.db
+*.log
+uploads/
+/reports/
+artifacts/
+node_modules/
+.next/
+playwright-report/
+test-results/
+.auth/
+.dart_tool/
+build/
+.flutter-plugins*
+android/local.properties
+.DS_Store
+.data/
+.supabase/
+*.tsbuildinfo
