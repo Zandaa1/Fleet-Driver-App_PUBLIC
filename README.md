@@ -1,10 +1,10 @@
 # Fleet Driver App
 
-Sanitized Flutter source demonstration for driver sign-in, trip status, delivery checkpoints, receipt capture, background location and chat. Original API captures, credentials, endpoint and client branding are removed. Images are synthetic placeholders; sample trip locations are fictional coordinates near 0,0.
+A Flutter application for driver sign-in, trip status, delivery checkpoints, receipt capture, background location and dispatch chat.
 
 ## Setup
 
-Requires Flutter with Dart 3.11.1-compatible SDK and the platform toolchains.
+Requires Flutter with a Dart 3.11.1-compatible SDK and the platform toolchains.
 
 ```sh
 flutter pub get
@@ -13,16 +13,18 @@ flutter test
 flutter run
 ```
 
-The API defaults to `https://example.invalid/`, a reserved non-operational domain. There is no backend bundled in this repository. To connect to a backend you control, explicitly set the compile-time configuration:
+Configure the backend through a compile-time setting:
 
 ```sh
 flutter run --dart-define=API_BASE_URL=http://127.0.0.1:8080/
 ```
 
-Use the appropriate host address for your emulator or physical device and configure its local HTTP policy if needed. API paths and DTOs describe the expected service contract, including the SignalR chat hub. TLS certificate validation uses the platform defaults. Supply only synthetic credentials and records.
+The default URL is `https://example.invalid/`; a backend is not bundled. Use the appropriate host address and network policy for your emulator or device. API paths and DTOs define the expected service contract, including the SignalR chat hub. TLS validation uses platform defaults.
 
-The existing admin tools expose offline UI test toggles and synthetic trip responses. Those responses cover only selected flows; local mock receipt/location storage does not replace the full authentication, delivery or chat backend. Device permissions, background tracking, camera, notifications and map launching require platform testing. Location and photos you create during a run are stored on your device or sent to the backend you explicitly configure.
+## Development notes
 
-## Validation limits
+Admin tools provide selected mock trip responses and offline UI controls. They do not replace the authentication, delivery or chat backend. Sample coordinates and images are placeholders.
 
-Flutter was unavailable in the sanitization environment, so compilation, analysis, tests and device flows have not been executed for this export. Review platform signing and network policy for your own installation. No release signing keys or production service configuration are supplied. No additional license grant is provided here.
+GPS, camera access, background tracking, notifications and map launching require device permissions and platform testing. Captured locations and photos are stored locally or sent to the configured backend. Supply your own signing configuration and keep credentials and user data out of version control.
+
+Compilation, analysis and device flows have not yet been verified for this version.
